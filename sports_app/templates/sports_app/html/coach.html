@@ -1,0 +1,32 @@
+{% load static%}
+<html><head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}
+    <table class="table" style="width:70%; margin-left:15%; margin-top:3%; background-color:white">
+        <thead>
+          <tr>
+            <th scope="col">Coach Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Sport</th>
+            <th scope="col">Experience</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% for c in coach_list_key%}
+    <tr>
+        <td scope="col" >{{c.employee_name}}</td>
+        <td scope="col" >{{c.phone}}</td>
+        <td scope="col" >{{c.sport}}</td>
+        <td scope="col" >{{c.experience}}</td>
+    </tr>
+    {% endfor %}
+        </tbody>
+      </table>
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

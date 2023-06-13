@@ -1,0 +1,129 @@
+{% load static%}
+<html><head><title>sportsapp | Admission Request </title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}
+    <div class="container "  style="height:70%; ">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-3 col-md-6 animated bounceInDown myForm " style="width:80%">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size:30px;text-align: center"><b> Admission Request Form</b></p>
+                </div>
+                <div class="card-body "  >
+                    <form method="post" action="/admission_request/" class="needs-validation" novalidate>
+                        {%csrf_token%}
+                        <div id="dynamic_container" class="row">
+                            <div class="input-group mt-3"  style="width:30%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-5"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="name" placeholder="Enter Your Name" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your name Please  </div>
+                            </div>
+                            <div class="input-group mt-3"  style="width:50%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="email" placeholder="Enter Your email" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your email Please  </div>
+                            </div>
+                            <div class="input-group mt-3 " style="width:25%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="phone" placeholder="Enter Your phone" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your phone Please  </div>
+                            </div>
+
+                            <div class="input-group mt-3 " style="width:25%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="gender" placeholder="Enter Your gender" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your gender Please  </div>
+                            </div>
+
+                            <div class="input-group mt-3 " style="width:25%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="dob" placeholder="Enter Your dob" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your dob Please  </div>
+                            </div>
+
+                            <div class="input-group mt-3 " style="width:25%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="height" placeholder="Enter Your height" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your height Please  </div>
+                            </div> 
+                            <div class="input-group mt-3 " style="width:30%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="weight" placeholder="Enter Your weight" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your weight Please  </div>
+                            </div>
+                            <div class="input-group mt-3 " style="width:30%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="health" placeholder="Enter Your health" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your health Please  </div>
+                            </div>
+                            <div class="input-group mt-3 " style="width:30%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="prefered_sport" placeholder="Enter Your prefered sport" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your prefered sport Please  </div>
+                            </div>
+                            <div class="input-group mt-3"  style="width:30%" >
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="parent_name" placeholder="Enter Your parent name" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your parent name Please  </div>
+                            </div>
+                            <div class="input-group mt-3" style="width:60%">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="parent_phone" placeholder="Enter Your parent phone" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your parent phone Please  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="address" placeholder="Enter Your address" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your address Please  </div>
+                            </div>
+                            
+                        </div>
+                         {% comment %} message code {% endcomment %}
+                        {% if messages%}
+                        {% for m in messages %} 
+                        {% comment %} {{m}}  {% endcomment %}
+                        <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+                            <strong> {{m}} </strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div> 
+                        {%endfor%}
+                        {%endif%}
+                        <button  style="width: 140px;height: 40px; text-align: center; margin-left:40%;margin-top:2%" class="btn btn-success btn-sm float-right submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button>
+                    </form>        
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

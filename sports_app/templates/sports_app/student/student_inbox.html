@@ -1,0 +1,36 @@
+{% load static%}
+<html><head><title>sports_app | student_inbox </title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body> {%include 'sports_app/student/student_header.html'%}<br>
+  <form method="POST" action="/delete_inbox_msg/">{%csrf_token%}
+    <table class="table" style="width:70%; margin-left:15%; background-color:white">
+        <thead>
+          <tr>
+            <th scope="col">Select</th>
+            <th scope="col">Sender id</th>
+            <th scope="col">subject</th>
+            <th scope="col">Date</th>
+            <th scope="col">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% for m in msg_key%}
+    <tr>
+        <td scope="col" >  <input type="checkbox" name="checkid" value="{{m.id}}">  </td>
+        <td scope="col" >{{m.sender_id}}</td>
+        <td scope="col" >{{m.msg_subject}}</td>
+        <td scope="col" >{{m.date}}</td>
+        <td scope="col" >{{m.msg_content}}</td>
+    </tr>
+    {% endfor %}
+    <tr> <td  colspan="5" class="text-center"> 
+          <button class="btn btn-success " > Delete </button> <td>
+    </tr>
+        </tbody>
+      </table><br>
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static%}
+<html><head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}
+    <table class="table" style="width:70%; margin-left:15%; margin-top:3%;background-color:white">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Players</th>
+            <th scope="col">Equipment</th>
+            <th scope="col">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% for s in sports_key%}
+    <tr>
+        <td scope="col" >{{s.sport_name}}</td>
+        <td scope="col" >{{s.no_of_players}}</td>
+        <td scope="col" >{{s.equipment}}</td>
+        <td scope="col" >{{s.description}}</td>
+    </tr>
+    {% endfor %}
+        </tbody>
+      </table>
+    <br>
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

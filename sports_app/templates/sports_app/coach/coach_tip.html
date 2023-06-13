@@ -1,0 +1,48 @@
+{% load static%}
+<html>
+<head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body >
+    {%include 'sports_app/coach/coach_header.html'%}
+
+    <div class="container" style="height:68%">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-5 col-md-6 animated bounceInDown myForm">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size: 25px;text-align: center"><b> Tips to Students</b>    </p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/coach_tip/" class="needs-validation" novalidate>
+                        {%csrf_token%}
+                        <div id="dynamic_container">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="coach_id" class="form-control" value="{{coach_key.employee_id}}" required/>
+                                <div class="invalid-feedback"> Enter Your Id  </div>
+                            </div>                       
+                        </div>
+                        <div id="dynamic_container">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="content" placeholder="enter the tip" class="form-control"  required/>
+                                <div class="invalid-feedback"> Enter the tip for students  </div>
+                            </div>                       
+                        </div>
+                        <button  style="width: 150px;height: 40px; margin-left:40%;margin-top:3%; text-align: center" class="btn btn-success btn-sm float-right submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button>
+                    </form>        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%}
+</body>
+</html>

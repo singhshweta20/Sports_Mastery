@@ -1,0 +1,30 @@
+{% extends 'sports_app/coach/coach_base.html' %}
+{%block title%} sports_app | coach_student_List
+                   {% endblock %}
+                  
+{%block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Student id</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">PIC</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for s in s_list_key%}
+
+<tr>
+    <td scope="col" >{{s.student_id}}</td>
+    <td scope="col" >{{s.student_name}}</td>
+    <td scope="col" >{{s.student_phone}}</td>
+    <td scope="col" >{{s.student_email}}</td>    
+    <td scope="col" ><img src="/media/{{s.student_pic}}" style="width:50px; height:50px"> </td>
+
+</tr>
+{% endfor %}
+    </tbody>
+  </table>
+{%endblock %}

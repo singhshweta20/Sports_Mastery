@@ -1,0 +1,18 @@
+{% load static%}
+<html>
+<head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body >
+    {%include 'sports_app/coach/coach_header.html'%}
+    <div class "col-md-5" style="margin-left:40%; margin-top: 100px; margin-bottom:100px; background-color:white ;width:370; padding:20" >
+        <h5>Name :  👨{{coach_dict_key.employee_name}}</h5>
+        <h5>Email:  {{coach_dict_key.email}}</h5>
+        <h5>Phone :  {{coach_dict_key.phone}}</h5>
+        <h5>Sport :  {{coach_dict_key.sport}}</h5>
+        <h5>Experience :  {{coach_dict_key.experience}}</h5>
+    </div>
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%}
+</body>
+</html>

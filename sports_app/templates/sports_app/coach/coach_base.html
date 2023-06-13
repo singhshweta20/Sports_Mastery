@@ -1,0 +1,21 @@
+{% load static%}
+<html><head><title>{%block title%} 
+                   {% endblock %}
+            </title>
+
+{%include 'sports_app/common/commoncss.html'%}
+
+<style>{%block style%}.table{width:70%; margin-left:15%; background-color:white} {% endblock %}</style>
+
+</head>
+<body id="body-pd">
+    {%include 'sports_app/coach/coach_header.html'%}<br>
+    
+  {% block content %} {% endblock %}
+<br>
+    <footer>     {%include 'sports_app/common/footer.html'%}   </footer>
+
+    {%include 'sports_app/common/commonjs.html'%}
+    <script src="{% static 'sports_app/js/validation.js'%}"></script>
+</body>
+</html></html>

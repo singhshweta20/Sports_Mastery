@@ -1,0 +1,123 @@
+{% load static%}
+<html><head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+{% comment %} <link rel="stylesheet" href="{%static 'sports_app/css/style.css' %}"> {% endcomment %}
+<style>
+    .rating {   display: flex;    
+                flex-direction: row-reverse;
+                justify-content: center
+            }
+
+    .rating>input {    display: none    }
+    .rating>label {    position: relative;
+                       width: 1em;
+                       font-size: 30px;
+                       font-weight: 300;
+                       color: #FFD600;
+                       cursor: pointer
+    }
+
+    .rating>label::before { content: "\2605";
+                            position: absolute;
+                            opacity: 0
+                          } 
+
+    .rating>label:hover:before,
+.rating>label:hover~label:before {    opacity: 1 !important   }
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {   opacity: 1 !important   }
+
+.rating>input:checked~label:before {    opacity: 1   }
+
+.rating:hover>input:checked~label:before {   opacity: 0.4   }
+div.design{
+    width: 40%;
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 10px;
+    margin-left:40%
+}  
+</style>
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}{% comment %} message code {% endcomment %}
+    {% if messages%}
+    {% for m in messages %} 
+    {% comment %} {{m}}  {% endcomment %}
+    <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+        <strong> {{m}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
+    {%endfor%}
+    {%endif%}
+
+    <div class="container " style="height:72%">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-3 col-md-6 animated bounceInDown myForm">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size: 30px;text-align: center"><b> FeedBack Form</b>    </p>
+                </div>
+                <div class="card-body" style="height:400px">
+                    <form method="post" action="/feedback/" class="needs-validation" novalidate >
+                        {%csrf_token%}
+                        <div id="dynamic_container">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="name" placeholder="Enter Your Name" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your name Please  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-at"></i></span>
+                                </div>
+                                <input type="email" required  name="email" placeholder="Enter Your Email" class="form-control"/>
+                                
+                                <div class="invalid-feedback">    Enter Your Email Please  </div>
+                            </div>
+                            
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-phone-square"></i></span>
+                                </div>
+                                <input type="tel" required name="phone" placeholder="Enter Your Phone Number" class="form-control"/>
+                                <div class="invalid-feedback">    Enter your phone number  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-cogs"></i></span>
+                                </div>
+                                <textarea required placeholder="Enter Your Feedback" name="feedback" class="form-control"></textarea>
+                                <div class="invalid-feedback">   Please write your feedback  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-star"></i></span>
+                                </div>
+                                <div class="rating form_control"> 
+                                    <input type="radio" name="ratings" value="5" id="5"><label for="5">☆</label> 
+                                    <input type="radio" name="ratings" value="4" id="4"><label for="4">☆</label> 
+                                    <input type="radio" name="ratings" value="3" id="3"><label for="3">☆</label> 
+                                    <input type="radio" name="ratings" value="2" id="2"><label for="2">☆</label> 
+                                    <input type="radio" name="ratings" value="1" id="1"><label for="1">☆</label>
+                                </div>
+                                <div class="invalid-feedback">   Please write your rating  </div>
+                            </div>                       
+                        </div>
+                        <button  style="width: 150px;height: 50px;margin-left:40%;margin-top:3%;" class="btn btn-success btn-sm submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button>
+                    </form>        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

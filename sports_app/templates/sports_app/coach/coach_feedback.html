@@ -1,0 +1,26 @@
+{% extends 'sports_app/coach/coach_base.html' %}
+{%block title%} sports_app | coach_feedback
+                   {% endblock %}
+                  
+{%block content%}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Student Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Feedback</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for f in feedback_list_key %}
+<tr>
+    <td scope="col" >{{f.std_id}}</td>
+    <td scope="col" >{{f.feedback_text}}</td>
+    <td scope="col" >{{f.rating}}</td>
+    <td scope="col" >{{f.date}}</td>
+</tr>
+{% endfor %}
+    </tbody>
+  </table>
+{%endblock %}

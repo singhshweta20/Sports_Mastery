@@ -1,0 +1,77 @@
+{% extends 'sports_app/coach/coach_base.html' %}
+{%block title%} sports_app | coach_edit_profile
+                   {% endblock %}
+{%block content%}
+<div class="container" style="height:66%">
+    <div class="d-flex justify-content-center">
+        <div class="card col-md-6 animated bounceInDown myForm">
+            <div class="card-header">
+            <p class="animate-charcter" style="font-size: 25px;text-align: center"><b> Coach Edit Profile</b>    </p>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/coach_edit_profile/" class="needs-validation" novalidate>
+                    {%csrf_token%}
+                    <div id="dynamic_container">
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_id" name="coach_id" class="form-control" value="{{coach_key.employee_id}}"required/>
+                            <div class="invalid-feedback"> Enter Your id Please  </div>
+                        </div>
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_name" name="coach_name" class="form-control" value="{{coach_key.employee_name}}"read only/>
+                            <div class="invalid-feedback"> Enter Your name Please  </div>
+                        </div>
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_email" name="coach_email" class="form-control" value="{{coach_key.email}}"required/>
+                            <div class="invalid-feedback"> Enter Your email Please  </div>
+                        </div>
+                         <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_password" name="coach_password" class="form-control" value="{{coach_key.password}}"required/>
+                            <div class="invalid-feedback"> Enter Your password </div>
+                        </div>
+                        
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_phone" name="coach_phone" class="form-control" value="{{coach_key.phone}}"required/>
+                            <div class="invalid-feedback"> Enter Your Phone No.  </div>
+                        </div> 
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                            </div>
+                            <input type="text" id="coach_experience" name="coach_experience" class="form-control" value="{{coach_key.experience}}"required/>
+                            <div class="invalid-feedback"> Enter Your experience  </div>
+                        </div>
+                    </div>   
+                    {% comment %} message code {% endcomment %}
+                    {% if messages%}
+                       {% for m in messages %} 
+                          {% comment %} {{m}}  {% endcomment %}
+                          <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+                               <strong> {{m}} </strong>
+                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </div> 
+                       {%endfor%}
+                    {%endif%}                 
+                    <button  style="width: 150px;height: 40px; text-align: center; margin-left:40%;margin-top:3%" class="btn btn-success btn-sm  submit_btn">
+                        <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                    </button>
+                </form>        
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock %}

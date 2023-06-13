@@ -1,0 +1,47 @@
+{% load static%}
+<html>
+    <head> 
+        {%include 'sports_app/common/commoncss.html'%}
+    </head>
+    <body>{%include 'sports_app/common/navbar.html'%}
+        <br>
+        <div class="row"  style="margin-left:30%; width:60%;">
+        <div class="col-6 bg-white">  
+            <div class="card-header">
+                <p style="font-size: 25px;text-align: center">
+                    <b><u>Student Login</u></b>
+                </p>
+            </div>
+            <form method="post" action="/student_login/" class="needs-validation" novalidate>
+            {%csrf_token%}
+            <div class="mb-3 form-floating">            
+            <input type="text" class="form-control" id="studentid" name="studentid" required placeholder="Enter your id.">
+            <label for="userid">userid</label>
+            <div class="invalid-feedback"> enter correct userid</div>
+          </div>
+          <div class="mb-3 form-floating">
+            <input type="password" class="form-control" id="studentpass" name="studentpass" required placeholder="Enter your password">
+            <label for="userpass">Enter password</label>
+            <div class="invalid-feedback"> enter correct password</div>
+          </div>
+
+          {% comment %} message code {% endcomment %}
+          {% if messages%}
+          {% for m in messages %} 
+          {% comment %} {{m}}  {% endcomment %}
+          <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+          <strong> {{m}} </strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div> 
+          {%endfor%}
+          {%endif%} 
+
+          <div class="text-center"><button class ="btn btn-success" >login</button></div></form>
+        </div>
+        </div><br>
+        <footer> {%include 'sports_app/common/footer.html' %}</footer>
+        {%include 'sports_app/common/commonjs.html' %}
+        <script src="{% static 'sports_app/js/validation.js'%}">
+        </script>
+    </body>
+</html>

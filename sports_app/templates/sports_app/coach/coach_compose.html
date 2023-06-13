@@ -1,0 +1,108 @@
+{% load static%}
+<html><head>
+    <title>sportsapp</title>
+    <style>.ajaxdiv{     color:red;    font-family:italic;  align:right;  }   </style>
+    {%include 'sports_app/common/commoncss.html'%}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function(){ 
+    $("#receiver_id").change(function(){
+        //alert("hello")
+        console.log($(this).val());
+    var username = $(this).val();
+    $.ajax( { url: "/validate_student_username/",  
+              data:{ 'username': username },
+              dataType: 'json',
+              success: function(context_dict){
+                if(context_dict.exists){
+                   //alert("Username already exists");
+                   //$("#data").html("Username already exists");
+                   $('#userNameExistence').remove(); 
+                  }
+                else{  $('#userNameExistence').remove(); 
+                       $('#receiver_id').after('<span class="ajaxdiv" id="userNameExistence"> Receiver Id does not exists!</span>')   
+            }
+                }               
+            }
+          );
+    })
+}) 
+</script>
+
+</head>
+<body> {%include 'sports_app/coach/coach_header.html'%}
+</head>
+<body>
+    {% if messages%}
+    {% for m in messages %} 
+    {% comment %} {{m}}  {% endcomment %}
+    <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+        <strong> {{m}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
+    {%endfor%}
+    {%endif%} 
+    <div class="container" style="height:72%">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-5 col-md-6 animated bounceInDown myForm">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size: 40px;text-align: center"><b> Coach Compose Message</b>    </p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/compose/" class="needs-validation" novalidate>
+                        {%csrf_token%}
+                        <div id="dynamic_container">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" id="receiver_id" name="receiver_id" placeholder="receiver_id" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your name Please  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-at"></i></span>
+                                </div>
+                                <input type="email" required id="email" name="email" placeholder="sender_id" class="form-control" value={{sender_key}} readonly/>
+                                
+                                <div class="invalid-feedback">    Enter Your Email Please  </div>
+                            </div>
+                            
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-phone-square"></i></span>
+                                </div>
+                                <input type="text" required name="subject" placeholder="subject" class="form-control"/>
+                                <div class="invalid-feedback">    Enter the subject here  </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-cogs"></i></span>
+                                </div>
+                                <textarea required placeholder="Enter Your Message" name="message" class="form-control"></textarea>
+                                
+                                <div class="invalid-feedback">   Please write your message here  </div>
+                            </div>                       
+                        </div>                    
+                        <div class="card-footer">
+                        <!-- <a class="btn btn-secondary btn-sm" id="add_more"><i class="fas fa-plus-circle"></i> Add</a>
+                        <a class="btn btn-secondary btn-sm" id="remove_more"><i class="fas fa-trash-alt"></i> Remove</a> -->
+                        <button  style="width: 150px;height: 40px; text-align: center" class="btn btn-success btn-sm float-right submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button>
+                        </div>
+                    </form>        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}"> </script>
+</body>
+</html>

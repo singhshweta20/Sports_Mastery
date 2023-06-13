@@ -1,0 +1,91 @@
+{% load static%}
+<html><head><title>sportsapp | Sport Suggestion </title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}
+    <div class="container "  style="height:70%">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-3 col-md-6 animated bounceInDown myForm">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size: 20px;text-align: center"><b> Sport Suggestion Form</b>    </p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/sport_suggestion/" class="needs-validation" novalidate>
+                        {%csrf_token%}
+                        <div id="dynamic_container">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="name" placeholder="Enter Your Name" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your name Please  </div>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="weight" placeholder="Enter Your weight" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your weight Please  </div>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="height" placeholder="Enter Your height" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your height Please  </div>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="gender" placeholder="Enter Your gender" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your gender Please  </div>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="prefered_sport" placeholder="Enter Your prefered_sport" class="form-control" required/>
+                                <div class="invalid-feedback"> Enter Your prefered sport Please  </div>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <select name="health_condition" placeholder="Enter Your health_condition" class="form-control" required>
+                                <option selected disabled >Select Health</option>
+                                 <option  value="1" >At peak</option>
+                                 <option  value="2" >good</option>
+                                 <option  value="3" >normal</option>
+                                 <option  value="4" >poor</option>   
+                                </select>
+                                <div class="invalid-feedback"> Enter Your health condition Please  </div>
+                            </div>
+                        </div>
+                        {% comment %} message code {% endcomment %}
+                        {% if messages%}
+                        {% for m in messages %} 
+                        {% comment %} {{m}}  {% endcomment %}
+                        <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+                            <strong> {{m}} </strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div> 
+                        {%endfor%}
+                        {%endif%}
+                        <button  style="width: 150px;height: 40px;margin-left:40%;margin-top:3%; text-align: center" class="btn btn-success btn-sm float-right submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button> 
+                    </form>        
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

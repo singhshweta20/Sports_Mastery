@@ -1,0 +1,30 @@
+{% load static%}
+<html><head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/student/student_header.html'%}
+    <div class "col-md-5" style="margin-left:35%; margin-top: 80px; margin-bottom:80px; background-color:white ;width:550px; padding:20">
+        <h5>Coach Id :  👨{{c_info_key.employee_id}}</h5>
+        <h5>Coach Name :  👨{{c_info_key.employee_name}}</h5>
+        <h5>Coach Phone No :  👨{{c_info_key.phone}}</h5>
+        <h5>Coach Email :  👨{{c_info_key.email}}</h5>
+        <h5>Coach Sport :  👨{{c_info_key.sport}}</h5>
+        <h5>Coach Experience :  👨{{c_info_key.experience}}</h5>
+    </div>
+
+    <div class="container-fluid bg-light color-danger" style="padding:20px">
+        {% for data_obj in tips_key %}
+        <div style="display:inline-block; margin-right:15px; margin-bottom:15px;padding:10px; border-style:solid;border-width:1px; border-color:black;">
+         Posted By : {{data_obj.employee}}
+         <br> Tip : {{data_obj.content}}
+        </div>
+        {%endfor%}  
+        </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

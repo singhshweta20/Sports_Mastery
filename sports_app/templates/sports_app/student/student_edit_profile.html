@@ -1,0 +1,77 @@
+{% load static%}
+<html><head><title>sportsapp | student edit profile</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/student/student_header.html'%}
+    
+    <div class="container"  style="height:72%">
+        <div class="d-flex justify-content-center">
+            <div class="card mt-3 col-md-6 animated bounceInDown myForm">
+                <div class="card-header">
+                <p class="animate-charcter" style="font-size: 25px;text-align: center"><b> Student Edit Profile</b>    </p>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/student_edit_profile/" class="needs-validation" novalidate>
+                        {%csrf_token%}
+                        <div id="dynamic_container">
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="student_id" class="form-control" value="{{user_key.student_id}}" required/>
+                                <div class="invalid-feedback"> Enter Your Id </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="student_name" class="form-control" value="{{user_key.student_name}}" required/>
+                                <div class="invalid-feedback"> Enter Your Name </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="email" name="student_email" class="form-control" value="{{user_key.student_email}}" required/>
+                                <div class="invalid-feedback"> Enter Your Email </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="password" name="student_password" class="form-control" value="{{user_key.student_password}}" required/>
+                                <div class="invalid-feedback"> Enter Your Password </div>
+                            </div>
+                            <div class="input-group mt-3" style="margin-bottom:10px;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text br-15"><i class="fas fa-user-graduate"></i></span>
+                                </div>
+                                <input type="text" name="student_phone" class="form-control" value="{{user_key.student_phone}}" required/>
+                                <div class="invalid-feedback"> Enter Your Phone </div>
+                            </div>
+                        </div>
+                        {% if messages%}
+                            {% for m in messages %} 
+                               {% comment %} {{m}}  {% endcomment %}
+                                <div class="alert alert-{{m.tags}} alert-dismissible fade show text-center" role="alert">
+                                   <strong> {{m}} </strong>
+                                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div> 
+                            {%endfor%}
+                        {%endif%}
+                        <button  style="width: 150px;height: 50px; margin-left:40%;text-align: center" class="btn btn-success btn-sm  submit_btn">
+                            <i class="fas fa-arrow-alt-circle-right"></i> <b>Submit</b>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>

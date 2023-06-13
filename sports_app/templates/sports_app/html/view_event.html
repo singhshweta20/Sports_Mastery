@@ -1,0 +1,26 @@
+{% load static%}
+<html><head><title>sportsapp</title>
+{%include 'sports_app/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'sports_app/common/navbar.html'%}
+    
+    <div class="card">
+        <div class="card-header">
+          {{event_key.event_name}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{event_key.event_description}}</p>
+          <p >{{event_key.event_venue}}</p>
+        </div>
+        <div class="card-footer text-body-secondary">
+            {{event_key.event_date}}
+          </div>
+      </div>
+
+    <footer> {%include 'sports_app/common/footer.html'%}</footer>
+    {%include 'sports_app/common/commonjs.html'%} 
+    <script src="{% static 'sports_app/js/validation.js'%}">
+    </script>
+</body>
+</html>
