@@ -1,77 +1,640 @@
-{% load static%}
-<html><head><title>sportsapp</title>
-{%include 'sports_app/common/commoncss.html'%}
-{% comment %} <link rel="stylesheet" href="{%static 'sports_app/css/style.css' %}"> {% endcomment %}
-<style>.w-100{height:59vh}</style>
-</head>
-<body >
-    {%include 'sports_app/common/navbar.html'%}<br>
+<!DOCTYPE html>
+<html lang="en">
 
-     <div id="carouselExampleCaptions" class="carousel slide " style="width:50vw;height:18vw;margin-left:25% ">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" style="width:100%;height:100%;">
-          <div class="carousel-item active">
-            <img src="{%static 'sports_app/images/img1.png'%}" class="d-block w-100 container" alt="...">
-            
-          </div>
-          <div class="carousel-item">
-            <img src="{%static 'sports_app/images/img2.png'%}" class="d-block w-100" alt="...">
-            
-          </div>
-          <div class="carousel-item">
-            <img src="{%static 'sports_app/images/img3.jpeg'%}" class="d-block w-100" alt="...">
-            
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div> 
-      <div style="text-align:center;color:white"><h4>Hustle, hit and never quit.<h4></div>
+  <head>
 
-        <div class="container-fluid bg-light color-danger">
-        <marquee onmouseover="this.stop()" onmouseout="this.start()">
-          {% for data_obj in event_key %}
-          <a href="/view_contents/{{data_obj.id}}" style="text-decoration:none;font-size:2vh">
-          {{data_obj.event_name}}
-          </a>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {%endfor%}
-        </marquee> 
+    <title>Education Meeting HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/sports_app/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="static/sports_app/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="static/sports_app/assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="static/sports_app/assets/css/owl.css">
+    <link rel="stylesheet" href="static/sports_app/assets/css/lightbox.css">
+<!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+  </head>
+
+<body>
+
+  
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo">
+                          Kridansh (BBDU Sports Hub)
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                          <li class="scroll-to-section"><a href="#top" class="active">Sports</a></li>
+                          <li class="scroll-to-section"><a href="#apply">Achievements</a></li>
+                          <li class="scroll-to-section"><a href="#apply">Coaches</a></li>
+                          <!-- <li class="has-sub">
+                              <a href="javascript:void(0)">Pages</a>
+                              <ul class="sub-menu">
+                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
+                                  <li><a href="meeting-details.html">Meeting Details</a></li>
+                              </ul>
+                          </li> -->
+                          <li class="scroll-to-section"><a href="#courses">Students</a></li> 
+                          <li class="scroll-to-section"><a href="#courses">Enroll</a></li>
+                          <li class="scroll-to-section"><a href="#contact">Login</a></li> 
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
       </div>
-      <div class="container-fluid bg-light color-danger" style="padding-left:20px">
-          {% for data_obj in feedback_key %}
-          <div style="display:inline-block; margin-right:15px; margin-bottom:15px;padding:10px; border-style:solid;border-width:1px; border-color:black;">
-           Student Name: {{data_obj.std_id}}
-           <br> Coach Name : {{data_obj.c_id}}
-           <br>Coach Feedback : {{data_obj.feedback_text}}
-           <br> Rating : {{data_obj.rating}} /5
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="static/sports_app/assets/images/video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="caption">
+              <h6>Hello aTHLETE</h6>
+              <h2>Welcome to Kridansh</h2>
+              <p>Kridansh is a new BBDU Sports Hub Portal which provides facilities to enqiure and interact with the BBDU sports Hub community. Our sports centres have state of the art coaching facilities to train the young atheletes towards the goals of the future. </p>
+              <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="#contact">Enroll</a></div>
+              </div>
           </div>
-          {%endfor%}  
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="container-fluid bg-light color-danger" style="padding-left:20px">
-        {% for data_obj in tips_key %}
-        <div style="display:inline-block; margin-right:15px; margin-bottom:15px;padding:10px; border-style:solid;border-width:1px; border-color:black;">
-         Posted By : {{data_obj.employee}}
-         <br> Tip : {{data_obj.content}}
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+  <section class="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-service-item owl-carousel">
+          
+            <div class="item">
+              
+              <div class="down-content">
+                <img src="static/sports_app/assets/images/cricket.png" alt="" height="100" width="400">
+                <h4>Cricket</h4>
+              </div>
+            </div>
+            
+            <div class="item">
+              
+              <div class="down-content">
+                <img src="static/sports_app/assets/images/basketball.png" alt="" height="100" width="400">
+                <h4>Basketball</h4>
+              </div>
+            </div>
+
+
+            <div class="item">
+              
+              <div class="down-content">
+                <img src="static/sports_app/assets/images/volleyball.png" alt="" height="100" width="200">
+                <h4>Volleyball</h4>
+              </div>
+            </div>
+
+            <div class="item">
+              
+              <div class="down-content">
+                <img src="static/sports_app/assets/images/badminton.png" alt="" height="100" width="200">
+                <h4>Badminton</h4>
+              </div>
+            </div>
+
+
+            <div class="item">
+              
+              <div class="down-content">
+                <img src="static/sports_app/assets/images/football.png" alt="" height="100" width="200">
+                <h4>Football</h4>
+              </div>
+            </div>
+
+
+           
+            
+          </div>
         </div>
-        {%endfor%}  
+      </div>
+    </div>
+  </section>
+
+  <section class="upcoming-meetings" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Upcoming Events</h2>
+          </div>
         </div>
-      <br>
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
-    <script src="{%static 'sports_app/js/chatbot.js'%}"></script>
-    {%include 'sports_app/common/commonjs.html'%}  
-    <script src="{% static 'sports_app/js/validation.js'%}">
+        
+        <div class="col-lg-8">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Basketball</span>
+                  </div>
+                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/basketballevent.png" alt="New Lecturer Meeting" height="220"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>June <span>30</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>BBDU vs LU </h4></a>
+                  <p>BBDU Basketball Court</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Cricket</span>
+                  </div>
+                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/cricketevent.png" alt="New Lecturer Meeting" height="220"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>July <span>3</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>BBDU vs Amity University</h4></a>
+                  <p>Amity Cricket Stadium</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Badminton</span>
+                  </div>
+                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/badmintonevent.png" alt="New Lecturer Meeting" height="220"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>July <span>5</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>BBDU vs IIIT Lucknow </h4></a>
+                  <p>BBDU Badminton Court</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Volleyball</span>
+                  </div>
+                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/volleyballevent.png" alt="New Lecturer Meeting" height="220"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>July <span>10</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>BBDU vs IIM Lucknow </h4></a>
+                  <p>IIM Lucknow Volleyball Court</p>
+                </div>
+              </div>
+            </div>
+
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="our-courses" id="courses">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Our Esteemed Coaches</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="owl-courses-item owl-carousel">
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach2.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Akshat Bhargawa</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Volleyball</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach3.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Sandeep Kumar</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Badminton</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach4.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Jagdeep Singh</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Football</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach1.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Sanchit Verma</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Cricket</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach5.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Varun Rawat</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Basketball</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach6.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Arun Tiwari</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Football</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach7.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Heet Shah</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Volleyball</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="item">
+              <img src="static/sports_app/assets/images/coach8.png" alt="Course One" height="200">
+              <div class="down-content">
+                <h4>Mohit Agarwal</h4>
+                <div class="info">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                       <span>Basketball</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="our-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Kridansh Statistics</h2>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content percentage">
+                    <div class="count-digit">24</div>
+                    <div class="count-title">Students selected in state teams</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">126</div>
+                    <div class="count-title">trophies won in tournaments</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">5</div>
+                    <div class="count-title">Badminton, Basketball, Volleyball Courts</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">249</div>
+                    <div class="count-title">New Students enrolled every year</div>
+                  </div>
+                </div> 
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">1</div>
+                    <div class="count-title">Top Sports facility in Lucknow</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">1</div>
+                    <div class="count-title">Cricket and Football Ground</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-us" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <form id="contact" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>Let's get in touch</h2>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="right-info">
+            <ul>
+              <li>
+                <h6>Phone Number</h6>
+                <span>+91-9451804050</span>
+              </li>
+              <li>
+                <h6>Email Address</h6>
+                <span>info@kridansh.edu</span>
+              </li>
+              <li>
+                <h6>Address</h6>
+                <span>111, Faizabad Rd, Atif Vihar, Lucknow, Uttar Pradesh 226028</span>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="static/sports_app/vendor/jquery/jquery.min.js"></script>
+    <script src="static/sports_app/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="static/sports_app/assets/js/isotope.min.js"></script>
+    <script src="static/sports_app/assets/js/owl-carousel.js"></script>
+    <script src="static/sports_app/assets/js/lightbox.js"></script>
+    <script src="static/sports_app/assets/js/tabs.js"></script>
+    <script src="static/sports_app/assets/js/video.js"></script>
+    <script src="static/sports_app/assets/js/slick-slider.js"></script>
+    <script src="static/sports_app/assets/js/custom.js"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
     </script>
+</body>
+
 </body>
 </html>
