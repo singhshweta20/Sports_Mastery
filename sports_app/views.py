@@ -16,10 +16,14 @@ def home(request):
     # for t in tips_list:
     #     print(t.content)
     #     print( t.employee)
-    
+    coach_list= Employee.objects.filter(type="C")
+    event_list= Event.objects.all()
+    # print(coach_list_dict)
     home_dict = {"event_key":event_list,
                  "feedback_key" :feedback_list,
-                 "tips_key":tips_list              
+                 "tips_key":tips_list,
+                 "coach_list":coach_list,
+                 "event_list": event_list            
                 }   
     return render(request,'sports_app/html/home.html',home_dict) #passing dict to webpage
 
@@ -91,12 +95,18 @@ def user_profile(request):
         coach_list_dict={"coach_list_key":coach_list}
         return render(request,'sports_app/html/coach.html',coach_list_dict)
     
-def coach(request):
-    if request.method=="GET":
-        coach_list= Employee.objects.filter(type="C")
-        coach_list_dict={"coach_list_key":coach_list}
-        return render(request,'sports_app/html/coach.html',coach_list_dict)
-    
+def coach(request, id):
+    emp_content= Employee.objects.get(employee_id=id)
+    coach={"coach": emp_content}
+    print(coach)
+    return render(request,'sports_app/html/coach.html',coach)
+
+def event(request, id):
+    event_content= Event.objects.get(event_id=id)
+    event={"event": event_content}
+    print(event)
+    return render(request,'sports_app/html/event.html', event)
+
 def sport_suggestion(request):
     if request.method=="GET":
         return render(request,'sports_app/html/sport_suggestion.html')

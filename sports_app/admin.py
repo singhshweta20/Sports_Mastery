@@ -3,11 +3,6 @@ from django.contrib import admin
 from .models import Event,Contact,Feedback_Rating,Employee,Sport ,Sport_Plan,Tip,Student,User_Message,Student_Feedback,Coach_Assign
 
 
-class Event_Admin(admin.ModelAdmin):
-    list_display=('event_name','event_description','event_venue','event_date')
-    search_fields=('event_date',)
-    list_filter=['event_date']
-    
 class Event_Contact(admin.ModelAdmin):
     list_display=('name','email','phone','user_query','date')
 
@@ -17,7 +12,7 @@ class Student_Admin(admin.ModelAdmin):
 class Employee_Admin(admin.ModelAdmin):
     list_display=('employee_id','employee_name','email','phone','type')
     
-admin.site.register(Event,Event_Admin)
+admin.site.register(Event)
 admin.site.register(Contact,Event_Contact)
 admin.site.register(Feedback_Rating)
 admin.site.register(User_Message)

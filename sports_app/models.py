@@ -1,15 +1,20 @@
 from django.db import models
 from django.utils import timezone
+import uuid
 # Create your models here.
 
 class Event(models.Model):
-    event_name = models.CharField(max_length=50,null=False)
-    event_description = models.TextField()
-    event_venue = models.CharField(max_length=100)
-    event_pic =models.FileField(max_length=100, upload_to="sports_app/pictures",default="")
-    event_date= models.DateField(default=timezone.now)
+    event_id=models.CharField(max_length=10,default = "NA")
+    name = models.CharField(max_length=50,null=False)
+    sports = models.CharField(max_length=50,null=False)
+    team1 = models.CharField(max_length=50,null=False)
+    description = models.TextField(default="NA")
+    team2 = models.CharField(max_length=50,null=False)
+    venue = models.CharField(max_length=100)
+    date= models.DateField(default=timezone.now)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     def __str__(self):#used to represent object of class event as a string
-        return self.event_name
+        return self.name
 
 class Contact(models.Model) :
     name=models.CharField(max_length=45,null=False)
@@ -84,13 +89,26 @@ class Student_Feedback(models.Model):
 e_types=[('C','coach'),('T','Trainer'),('M','Medical Staff'),('S','Sweeper')]
 class Employee(models.Model):
     employee_id=models.CharField(max_length=10,null=False,primary_key=True)
-    employee_name=models.CharField(max_length=45,null=False)
-    email=models.EmailField(max_length=40,null=False)
+    employee_name=models.CharField(max_length=45,null=False, default="NA")
+    email=models.EmailField(max_length=40,null=False, default="NA")
     password=models.CharField(max_length=20,null=False)
     phone=models.CharField(max_length=10,null=False)
-    type=models.CharField(max_length=4,choices=e_types,null=False)
-    sport=models.ForeignKey(Sport,null=True,on_delete=models.DO_NOTHING)
-    experience=models.CharField(max_length=3,null=False)
+    type=models.CharField(max_length=4,choices=e_types,null=False, default="NA")
+    sport=models.ForeignKey(Sport,null=True,on_delete=models.DO_NOTHING, default="NA")
+    experience=models.CharField(max_length=3,null=False, default="NA")
+    monthly_charge=models.CharField(max_length=5,null=False, default="NA")
+    institute=models.CharField(max_length=50,null=False, default="NA")
+    students=models.CharField(max_length=10,null=False, default="NA")
+    professionalism = models.IntegerField(default = 0)
+    knowledge = models.IntegerField(default = 0)
+    achievements= models.IntegerField(default = 0)
+    communication = models.IntegerField(default = 0)
+    planning = models.IntegerField(default = 0)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    twitter=models.CharField(max_length=10,null=False, default="NA")
+    instagram=models.CharField(max_length=10,null=False, default="NA")
+    facebook=models.CharField(max_length=10,null=False, default="NA")
+
     def __str__(self):
         return self.employee_name
 

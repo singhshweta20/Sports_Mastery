@@ -145,78 +145,29 @@ https://templatemo.com/tm-569-edu-meeting
         
         <div class="col-lg-12">
           <div class="owl-service-item owl-carousel">
-
+            {% for event in event_list %}
+            <a  href="/event/{{event.event_id}}/"> 
             <div class="col-lg-12">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
-                    <span>Basketball</span>
+                    <span>{{event.sports}}</span>
                   </div>
-                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/basketballevent.png" alt="New Lecturer Meeting" height="220"></a>
+                  <img src="{{event.image.url}}" alt="New Lecturer Meeting" height="220">
                 </div>
                 <div class="down-content">
                   <div class="date">
-                    <h6>June <span>30</span></h6>
+                    <h6>{{event.event_date}}</h6>
                   </div>
-                  <a href="meeting-details.html"><h4>BBDU vs LU </h4></a>
-                  <p>BBDU Basketball Court</p>
+                  <h4>{{event.team1}} vs {{event.team2}} </h4>
+                  <p>{{event.venue}}</p>
                 </div>
               </div>
             </div>
+            </a>
+            {%endfor%} 
+
             
-            <div class="col-lg-12">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>Cricket</span>
-                  </div>
-                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/cricketevent.png" alt="New Lecturer Meeting" height="220"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>July <span>3</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>BBDU vs Amity University</h4></a>
-                  <p>Amity Cricket Stadium</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>Badminton</span>
-                  </div>
-                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/badmintonevent.png" alt="New Lecturer Meeting" height="220"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>July <span>5</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>BBDU vs IIIT Lucknow </h4></a>
-                  <p>BBDU Badminton Court</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>Volleyball</span>
-                  </div>
-                  <a href="meeting-details.html"><img src="static/sports_app/assets/images/volleyballevent.png" alt="New Lecturer Meeting" height="220"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>July <span>10</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>BBDU vs IIM Lucknow </h4></a>
-                  <p>IIM Lucknow Volleyball Court</p>
-                </div>
-              </div>
-            </div>
           </div>
             
         </div>
@@ -253,11 +204,12 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-12">
           <div class="owl-courses-item owl-carousel">
 
-            <a  href="{{'/coach'}}"> 
+            {% for coach in coach_list %}
+            <a  href="/coach/{{coach.employee_id}}/"> 
             <div class="item">
-              <img src="static/sports_app/assets/images/coach2.png" alt="Course One" height="200">
+              <img src="{{ coach.image.url }}" alt="Course One" height="200">
               <div class="down-content">
-                <h4>Akshat Bhargawa</h4>
+                <h4>{{coach.employee_name}}</h4>
                 <div class="info">
                   <div class="row">
                     <div class="col-8">
@@ -269,175 +221,15 @@ https://templatemo.com/tm-569-edu-meeting
                       </ul>
                     </div>
                     <div class="col-4">
-                       <span>Volleyball</span>
+                       <span>{{coach.sport.sport_name}}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             </a>
+            {%endfor%} 
 
-            <a href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach3.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Sandeep Kumar</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Badminton</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach4.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Jagdeep Singh</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Football</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a  href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach1.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Sanchit Verma</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Cricket</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a  href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach5.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Varun Rawat</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Basketball</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a  href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach6.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Arun Tiwari</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Football</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a  href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach7.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Heet Shah</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Volleyball</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-            <a  href="{{'/coach'}}"> 
-            <div class="item">
-              <img src="static/sports_app/assets/images/coach8.png" alt="Course One" height="200">
-              <div class="down-content">
-                <h4>Mohit Agarwal</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>Basketball</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </a>
-
-            
-            
             
           </div>
         </div>

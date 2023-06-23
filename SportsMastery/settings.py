@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sports_app',
     'django_extensions',
+    'mathfilters'
 ]
 
 MIDDLEWARE = [
