@@ -20,6 +20,31 @@
     <link rel="stylesheet" href="static/sports_app/assets/css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="static/sports_app/assets/css/owl.css">
     <link rel="stylesheet" href="static/sports_app/assets/css/lightbox.css">
+    <style>
+      a:link {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      
+      a:visited {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: white;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+      
+      a:active {
+        color: white;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+      </style>
 <!--
 
 TemplateMo 569 Edu Meeting
@@ -31,64 +56,76 @@ https://templatemo.com/tm-569-edu-meeting
 
 <body>
 
-  
+  <!-- <header>
+  {%include 'sports_app/common/navbar.html'%}
+</header> -->
 
+  <br>
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          Kridansh (BBDU Sports Hub)
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#top" class="active">Sports</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Achievements</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Coaches</a></li>
-                          <!-- <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
-                          </li> -->
-                          <li class="scroll-to-section"><a href="#courses">Students</a></li> 
-                          <li class="scroll-to-section"><a href="#courses">Enroll</a></li>
-                          <li class="scroll-to-section"><a href="#contact">Login</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
+
   <!-- ***** Header Area End ***** -->
 
   <!-- ***** Main Banner Area Start ***** -->
-  <section class="section main-banner" id="top" data-section="section1">
-      <video autoplay muted loop id="bg-video">
-          <source src="static/sports_app/assets/images/video.mp4" type="video/mp4" />
-      </video>
+  
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        Sports Mastery (BBDU Sports Hub)
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <a class="nav" href="{{'/contactus'}}"><li class="scroll-to-section"> <h5>Contact Us</h5></li></a> 
+                      <a class="nav" href="{{'/feedback'}}"><li class="scroll-to-section"><h5>Feedback</h5> </li></a>
+                      <a class="nav" href="{{'/aboutus'}}"><li class="scroll-to-section"><h5> About Us</h5></li></a> 
 
+                      <a class="nav" href="{{'/sport_suggestion'}}"> <li class="scroll-to-section"><h5>Sport Suggestion</h5></li></a>
+                      <a class="nav" href="{{'/admission_request'}}"><li class="scroll-to-section"><h5>Admission Request</h5></li> </a> 
+                      <a class="nav" href="{{'/admission_request'}}"> <li class="scroll-to-section"><h5>Statistics</h5></li> </a> 
+                      <li class="has-sub">
+                        <a class="nav" href="javascript:void(0)"><h5>Sports</h5></a>
+                        <ul class="sub-menu">
+                          <li><a class="dropdown-item" href="{{'/sports'}}">Sport List</a></li>
+                          <li><a class="dropdown-item" href="{{'/sports_plan'}}">Sports Plan</a></li>
+                        </ul>
+                    </li>
+                      <li class="has-sub" align="bottom">
+
+                        <a class="nav"  href="javascript:void(0)"><h5>Login</h5></a>
+                        <ul class="sub-menu">
+                            <li><a class="dropdown-item" href="{{'/student_login'}}">Student</a></li>
+                            <li><a class="dropdown-item" href="{{'/coach_login'}}">Coach</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+  <section class="section main-banner" id="top" data-section="section1">
+    <img src="static/sports_app/images/sports.jpeg" id="bg-video">
+          
+  </img>
       <div class="video-overlay header-text">
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
               <h6>Hello aTHLETE</h6>
-              <h2>Welcome to Kridansh</h2>
-              <p>Kridansh is a new BBDU Sports Hub Portal which provides facilities to enqiure and interact with the BBDU sports Hub community. Our sports centres have state of the art coaching facilities to train the young atheletes towards the goals of the future. </p>
-              <div class="main-button-red">
-                  <div class="scroll-to-section"><a href="#contact">Enroll</a></div>
-              </div>
+              <h2>Welcome to Sports Mastery</h2>
+              <p color="white" font-size="20px">Sports Mastery is a new BBDU Sports Hub Portal which provides facilities to enqiure and interact with the BBDU sports Hub community. Our sports centres have state of the art coaching facilities to train the young atheletes towards the goals of the future. </p>
+              
           </div>
               </div>
             </div>
@@ -97,76 +134,19 @@ https://templatemo.com/tm-569-edu-meeting
   </section>
   <!-- ***** Main Banner Area End ***** -->
 
-  <section class="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-service-item owl-carousel">
-          
-            <div class="item">
-              
-              <div class="down-content">
-                <img src="static/sports_app/assets/images/cricket.png" alt="" height="100" width="400">
-                <h4>Cricket</h4>
-              </div>
-            </div>
-            
-            <div class="item">
-              
-              <div class="down-content">
-                <img src="static/sports_app/assets/images/basketball.png" alt="" height="100" width="400">
-                <h4>Basketball</h4>
-              </div>
-            </div>
-
-
-            <div class="item">
-              
-              <div class="down-content">
-                <img src="static/sports_app/assets/images/volleyball.png" alt="" height="100" width="200">
-                <h4>Volleyball</h4>
-              </div>
-            </div>
-
-            <div class="item">
-              
-              <div class="down-content">
-                <img src="static/sports_app/assets/images/badminton.png" alt="" height="100" width="200">
-                <h4>Badminton</h4>
-              </div>
-            </div>
-
-
-            <div class="item">
-              
-              <div class="down-content">
-                <img src="static/sports_app/assets/images/football.png" alt="" height="100" width="200">
-                <h4>Football</h4>
-              </div>
-            </div>
-
-
-           
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="upcoming-meetings" id="meetings">
+  <section class="our-courses" id="coaches">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Upcoming Events</h2>
+            <h2 align="center">Upcoming Events</h2>
           </div>
         </div>
         
-        <div class="col-lg-8">
-          <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-service-item owl-carousel">
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -184,7 +164,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -202,7 +182,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -220,7 +200,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
@@ -237,17 +217,32 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-            
-
           </div>
+            
         </div>
       </div>
     </div>
   </section>
 
+  <!-- <section class="upcoming-meetings" id="meetings">
+    <div class="container">
+      <div class="row">
 
-  <section class="our-courses" id="courses">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2></h2>
+          </div>
+        </div>
+        
+        
+
+      </div>
+    </div>
+  </section> -->
+
+
+
+  <section class="our-courses" id="coaches">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -258,7 +253,7 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-12">
           <div class="owl-courses-item owl-carousel">
 
-
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach2.png" alt="Course One" height="200">
               <div class="down-content">
@@ -280,8 +275,9 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
+            </a>
 
-
+            <a href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach3.png" alt="Course One" height="200">
               <div class="down-content">
@@ -302,8 +298,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach4.png" alt="Course One" height="200">
               <div class="down-content">
@@ -325,8 +321,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach1.png" alt="Course One" height="200">
               <div class="down-content">
@@ -348,8 +344,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach5.png" alt="Course One" height="200">
               <div class="down-content">
@@ -369,8 +365,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach6.png" alt="Course One" height="200">
               <div class="down-content">
@@ -393,8 +389,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach7.png" alt="Course One" height="200">
               <div class="down-content">
@@ -416,8 +412,8 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
-
-
+          </a>
+            <a  href="{{'/coach'}}"> 
             <div class="item">
               <img src="static/sports_app/assets/images/coach8.png" alt="Course One" height="200">
               <div class="down-content">
@@ -438,143 +434,21 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
               </div>
             </div>
+            </a>
 
             
             
             
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="our-facts">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="row">
-            <div class="col-lg-12">
-              <h2>Kridansh Statistics</h2>
-            </div>
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-12">
-                  <div class="count-area-content percentage">
-                    <div class="count-digit">24</div>
-                    <div class="count-title">Students selected in state teams</div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="count-area-content">
-                    <div class="count-digit">126</div>
-                    <div class="count-title">trophies won in tournaments</div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="count-area-content">
-                    <div class="count-digit">5</div>
-                    <div class="count-title">Badminton, Basketball, Volleyball Courts</div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-12">
-                  <div class="count-area-content">
-                    <div class="count-digit">249</div>
-                    <div class="count-title">New Students enrolled every year</div>
-                  </div>
-                </div> 
-                <div class="col-12">
-                  <div class="count-area-content">
-                    <div class="count-digit">1</div>
-                    <div class="count-title">Top Sports facility in Lucknow</div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="count-area-content">
-                    <div class="count-digit">1</div>
-                    <div class="count-title">Cricket and Football Ground</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-        
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-us" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 align-self-center">
-          <div class="row">
-            <div class="col-lg-12">
-              <form id="contact" action="" method="post">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <h2>Let's get in touch</h2>
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
-                  </fieldset>
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                    <fieldset>
-                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
-                    </fieldset>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="right-info">
-            <ul>
-              <li>
-                <h6>Phone Number</h6>
-                <span>+91-9451804050</span>
-              </li>
-              <li>
-                <h6>Email Address</h6>
-                <span>info@kridansh.edu</span>
-              </li>
-              <li>
-                <h6>Address</h6>
-                <span>111, Faizabad Rd, Atif Vihar, Lucknow, Uttar Pradesh 226028</span>
-              </li>
-              
-            </ul>
           </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
+      <p>Prepared for BCA final project submission.</p>
     </div>
   </section>
+
+
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -634,6 +508,7 @@ https://templatemo.com/tm-569-edu-meeting
           checkSection();
         });
     </script>
+    
 </body>
 
 </body>

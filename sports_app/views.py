@@ -23,6 +23,22 @@ def home(request):
                 }   
     return render(request,'sports_app/html/home.html',home_dict) #passing dict to webpage
 
+def home2(request):
+    event_list= Event.objects.all() #to fetch ojects of table
+    feedback_list=Student_Feedback.objects.all() 
+       
+    tips_list=Tip.objects.all()
+    # for t in tips_list:
+    #     print(t.content)
+    #     print( t.employee)
+    
+    home_dict = {"event_key":event_list,
+                 "feedback_key" :feedback_list,
+                 "tips_key":tips_list              
+                }   
+    return render(request,'sports_app/html/home_original.html',home_dict) #passing dict to webpage
+
+
 def feedback(request):
     if request.method=='GET': #to open html page 
        return render(request,'sports_app/html/feedback.html')
@@ -69,6 +85,12 @@ def sports_plan(request):
         sports_plan_dict={"sports_plan_key":sports_plan_list}
         return render(request,'sports_app/html/sports_plan.html',sports_plan_dict)
 
+def user_profile(request):
+    if request.method=="GET":
+        coach_list= Employee.objects.filter(type="C")
+        coach_list_dict={"coach_list_key":coach_list}
+        return render(request,'sports_app/html/coach.html',coach_list_dict)
+    
 def coach(request):
     if request.method=="GET":
         coach_list= Employee.objects.filter(type="C")
