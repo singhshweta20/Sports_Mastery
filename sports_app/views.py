@@ -89,6 +89,9 @@ def sports_plan(request):
         sports_plan_dict={"sports_plan_key":sports_plan_list}
         return render(request,'sports_app/html/sports_plan.html',sports_plan_dict)
 
+def statistics(request):
+    return render(request,'sports_app/html/statistics.html')
+
 def user_profile(request):
     if request.method=="GET":
         coach_list= Employee.objects.filter(type="C")
