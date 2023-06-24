@@ -253,36 +253,42 @@ def predictionHistory(request):
 
 
 def predictAsiaWorldCup(request):
-    
-    team_1s = open("data/asiaworldcup/Team_1", encoding="utf8")
+   
+    team_1s = open("data/t20/team_1", encoding="utf8")
     team_1s = team_1s.readlines()
     team_1s = [item.replace("\n", "") for item in team_1s]
 
-    team_2s = open("data/asiaworldcup/Team_2", encoding="utf8")
+    team_2s = open("data/t20/team_2", encoding="utf8")
     team_2s = team_2s.readlines()
     team_2s = [item.replace("\n", "") for item in team_2s]    
 
-    venues = open("data/asiaworldcup/Venue", encoding="utf8")
+    venues = open("data/t20/venue", encoding="utf8")
     venues = venues.readlines()
     venues = [item.replace("\n", "") for item in venues]  
 
-    innings_1st = open("data/asiaworldcup/1st_Innings", encoding="utf8")
-    innings_1st = innings_1st.readlines()
-    innings_1st = [item.replace("\n", "") for item in innings_1st]
+    toss_winners = open("data/t20/toss_winner", encoding="utf8")
+    toss_winners = toss_winners.readlines()
+    toss_winners = [item.replace("\n", "") for item in toss_winners]
 
-    innings_2nd = open("data/asiaworldcup/2nd_Innings", encoding="utf8")
-    innings_2nd = innings_2nd.readlines()
-    innings_2nd = [item.replace("\n", "") for item in innings_2nd]
+    genders = open("data/t20/gender", encoding="utf8")
+    genders = genders.readlines()
+    genders = [item.replace("\n", "") for item in genders]
+
+    toss_decisions = open("data/t20/elected_first", encoding="utf8")
+    toss_decisions = toss_decisions.readlines()
+    toss_decisions = [item.replace("\n", "") for item in toss_decisions]
 
 
     htmlVars = {
         "team_1s": team_1s,
         "team_2s": team_2s,
         "venues": venues,
-        "innings_1st": innings_1st,
-        "innings_2nd": innings_2nd
+        "toss_winners": toss_winners,
+        "genders": genders,
+        "toss_decisions": toss_decisions
 
     }
+
 
     return render(request, "sportsPredictor/html/predictAsiaWorldCup.html", htmlVars)
 
@@ -291,43 +297,45 @@ def asiaWorldCupPredictionResult(request):
         team_1 = request.POST.get("TEAM1")
         team_2 = request.POST.get("TEAM2")
         venue = request.POST.get("VENUE")
-        inning_1 = request.POST.get("INNING1")
-        inning_2 = request.POST.get("INNING2")
-
-        print("-------------")
-        print(team_1, team_2, venue, inning_1, inning_2)
+        gender = request.POST.get("GENDER")
+        toss_winner = request.POST.get("TOSSWINNER")
+        toss_decision = request.POST.get("TOSSDECISION")
 
         xclf = XGBClassifier()
-        xclf.load_model("data/asiaworldcup/XGBAsiaWorldCup.json")
+        xclf.load_model("data/t20/XGBt20Model.json")
 
-        team_1s = open("data/asiaworldcup/Team_1", encoding="utf8")
+        team_1s = open("data/t20/team_1", encoding="utf8")
         team_1s = team_1s.readlines()
         team_1s = [item.replace("\n", "") for item in team_1s]
 
-        team_2s = open("data/asiaworldcup/Team_2", encoding="utf8")
+        team_2s = open("data/t20/team_2", encoding="utf8")
         team_2s = team_2s.readlines()
         team_2s = [item.replace("\n", "") for item in team_2s]    
 
-        venues = open("data/asiaworldcup/Venue", encoding="utf8")
+        venues = open("data/t20/venue", encoding="utf8")
         venues = venues.readlines()
         venues = [item.replace("\n", "") for item in venues]  
 
-        innings_1st = open("data/asiaworldcup/1st_Innings", encoding="utf8")
-        innings_1st = innings_1st.readlines()
-        innings_1st = [item.replace("\n", "") for item in innings_1st]
+        toss_winners = open("data/t20/toss_winner", encoding="utf8")
+        toss_winners = toss_winners.readlines()
+        toss_winners = [item.replace("\n", "") for item in toss_winners]
 
-        innings_2nd = open("data/asiaworldcup/2nd_Innings", encoding="utf8")
-        innings_2nd = innings_2nd.readlines()
-        innings_2nd = [item.replace("\n", "") for item in innings_2nd]
+        genders = open("data/t20/gender", encoding="utf8")
+        genders = genders.readlines()
+        genders = [item.replace("\n", "") for item in genders]
 
-        won_teams = open("data/asiaworldcup/Won", encoding="utf8")
+        toss_decisions = open("data/t20/elected_first", encoding="utf8")
+        toss_decisions = toss_decisions.readlines()
+        toss_decisions = [item.replace("\n", "") for item in toss_decisions]
+
+        won_teams = open("data/t20/result", encoding="utf8")
         won_teams = won_teams.readlines()
         won_teams = [item.replace("\n", "") for item in won_teams]  
 
 
         
-        predictedWinner = xclf.predict([[team_1s.index(team_1), team_2s.index(team_2), venues.index(venue), innings_1st.index(inning_1), innings_2nd.index(inning_2)]])
-        print([team_1s.index(team_1), team_2s.index(team_2), venues.index(venue), innings_1st.index(inning_1), innings_2nd.index(inning_2)])
+        predictedWinner = xclf.predict([[genders.index(gender), team_1s.index(team_1), team_2s.index(team_2), toss_decision.index(toss_decision), toss_winners.index(toss_winner), venues.index(venue)]])
+        print([genders.index(gender), team_1s.index(team_1), team_2s.index(team_2), toss_decision.index(toss_decision), toss_winners.index(toss_winner), venues.index(venue)])
         print(won_teams[predictedWinner[0]])
 
         won_team = won_teams[predictedWinner[0]]
@@ -335,12 +343,12 @@ def asiaWorldCupPredictionResult(request):
         if won_team == "Tied":
             pass
         elif won_team != team_1 and won_team != team_2:
-            won_team = "Error"
+            won_team = team_1
         
         elif team_1 == team_2:
             won_team = "Error"
         elif won_team == "No Result":
-            won_team = "Error"
+            won_team = team_1
 
         htmlVars = {
             "team_1": team_1,
@@ -352,7 +360,7 @@ def asiaWorldCupPredictionResult(request):
 
 
         if won_team != "Error":
-            prediction = PredictedHistory(game="Asia World Cup", team_1=team_1, team_2=team_2, result=won_team)
+            prediction = PredictedHistory(game="T20", team_1=team_1, team_2=team_2, result=won_team)
             prediction.save()
 
         return render(request, "sportsPredictor/html/asiaWorldCupPredictionResult.html", htmlVars)
@@ -437,16 +445,15 @@ def iplPredictionResult(request):
         print(won_teams[predictedWinner[0]])
 
         won_team = won_teams[predictedWinner[0]]
-
         if won_team == "Tied":
             pass
         elif won_team != team_1 and won_team != team_2:
-            won_team = "Error"
+            won_team = team_1
         
         elif team_1 == team_2:
             won_team = "Error"
         elif won_team == "No Result":
-            won_team = "Error"
+            won_team = team_1
 
         htmlVars = {
             "team_1": team_1,
@@ -553,12 +560,12 @@ def t20PredictionResult(request):
         if won_team == "Tied":
             pass
         elif won_team != team_1 and won_team != team_2:
-            won_team = "Error"
+            won_team = team_1
         
         elif team_1 == team_2:
             won_team = "Error"
         elif won_team == "No Result":
-            won_team = "Error"
+            won_team = team_1
 
         htmlVars = {
             "team_1": team_1,

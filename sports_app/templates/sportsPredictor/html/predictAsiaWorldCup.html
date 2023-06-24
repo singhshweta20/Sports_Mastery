@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sports Win Predictor | Foot Ball</title>
+        <title>Sports Win Predictor | T20</title>
     </head>
 
     {% load static %}
@@ -42,6 +42,7 @@
     </script>
 
     <body>
+      
       {%include 'sports_app/common/navbar.html'%}<br>
       
 
@@ -56,9 +57,8 @@
         </article>
       </div>
 
-      
       <div class="container getOptionsContainer">
-        <form action="{% url 'asiaWorldCupPredictionResult' %}" method="post">
+        <form action="{% url 't20PredictionResult' %}" method="post">
           {% csrf_token %}
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Team 1</span>
@@ -79,6 +79,16 @@
               {% endfor %}
             </select>
           </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">Gender</span>
+            <select class="input-group-text" name="GENDER" id="">
+              <option value="">--Select--</option>
+              {% for gender in genders %}
+                <option value="{{gender}}">{{gender}}</option>
+              {% endfor %}
+            </select>
+          </div>
           
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon3">Venue</span>
@@ -91,21 +101,21 @@
           </div>
           
           <div class="input-group mb-3">
-            <span class="input-group-text">Inning 1</span>
-            <select class="input-group-text" name="INNING1" id="">
+            <span class="input-group-text">Toss Winner</span>
+            <select class="input-group-text" name="TOSSWINNER" id="">
               <option value="">--Select--</option>
-              {% for inning_1 in innings_1st %}
-                <option value="{{inning_1}}">{{inning_1}}</option>
+              {% for toss_winner in toss_winners %}
+                <option value="{{toss_winner}}">{{toss_winner}}</option>
               {% endfor %}
             </select>
           </div>
 
           <div class="input-group mb-3">
-            <span class="input-group-text">Inning 2</span>
-            <select class="input-group-text" name="INNING2" id="">
+            <span class="input-group-text">Toss Decision</span>
+            <select class="input-group-text" name="TOSSDECISION" id="">
               <option value="">--Select--</option>
-              {% for inning_2 in innings_2nd %}
-                <option value="{{inning_2}}">{{inning_2}}</option>
+              {% for toss_decision in toss_decisions %}
+                <option value="{{toss_decision}}">{{toss_decision}}</option>
               {% endfor %}
             </select>
           </div>
