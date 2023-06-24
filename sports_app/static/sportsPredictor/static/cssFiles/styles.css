@@ -1,0 +1,484 @@
+@font-face {
+    font-family: Pacifico;
+    src: url("../fontFiles/Pacifico/Pacifico-Regular.ttf");
+}
+
+@font-face {
+    font-family: Playfair;
+    src: url("../fontFiles/Playfair/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url("../fontFiles/Raleway/Raleway-VariableFont_wght.ttf");
+}
+
+/* 
+
+Color codes  --> https://colorhunt.co/palette/645caaa084cabface0ebc7e8
+
+#645CAA
+#A084CA
+#BFACE0
+#EBC7E8
+
+*/
+
+*{
+    scrollbar-color: #645CAA #BFACE0;
+    scrollbar-width: 5px;
+}
+
+body{
+    font-family: Raleway;
+    background-color: #645CAA;
+}
+
+header{
+    color: #EBC7E8;
+}
+
+.header-brand-title{
+    font-weight: 700;
+    color: #EBC7E8;
+}
+
+.nav-link{
+    color: #BFACE0 !important;
+}
+
+.active{
+    color: #EBC7E8 !important;
+    font-weight: 600;
+}
+
+.nav-link:hover{
+    color: #ddd7e9 !important;
+}
+
+.header-favs{
+    padding: 4px;
+}
+
+.show-web-title{
+    height: 200px;
+    margin-top: 3%;
+}
+
+.web-showcase{
+    height: auto;
+    /* background-color: white; */
+    margin-top: 4%;
+}
+
+.web-showcase-events{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+    background-color: #A084CA;
+    color: #EBC7E8;
+    height: 420px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 30px;
+    transition-delay: 0.3s;
+    transition-timing-function: ease;
+    text-align: center;
+}
+
+.showcase-events-desc{
+    display: none;
+    font-size: 17px;
+    text-indent: 50px;
+    color: #BFACE0;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+
+article{
+    font-size: 17px;
+    color: #A084CA;
+    font-weight: 600;
+}
+
+h1{
+    color: #BFACE0;
+    font-weight: 800;
+}
+
+.web-showcase-container{
+    
+}
+
+.startUpDisplay{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-top: 120px !important;
+    padding-bottom: 120px !important;
+    height: auto;
+    background-color: rgb(247, 247, 247);
+    background-image: url("../images/otherImages/animated-shape-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px inset, rgba(0, 0, 0, 0.12) 0px -12px 30px inset, rgba(0, 0, 0, 0.12) 0px 4px 6px inset, rgba(0, 0, 0, 0.17) 0px 12px 13px inset, rgba(0, 0, 0, 0.09) 0px -3px 5px inset;
+}
+
+.getStartedContent{
+    height: 320px;
+    background-color: white;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    border-radius: 30px;
+    color: #BFACE0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+}
+
+.g-3{
+    padding: 1rem;
+}
+
+.displaySportsFavs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-content: center;
+    place-items: center;
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+    overflow: initial;
+}
+
+.sportsFavs{
+    padding: 10px;
+}
+
+.btn-outline-secondary{
+    --bs-btn-hover-bg: #BFACE0;
+}
+
+.predictOptionDisplay{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-top: 120px !important;
+    padding-bottom: 120px !important;
+    height: auto;
+    background-color: rgb(247, 247, 247);
+    background-image: url("../images/otherImages/rect-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px inset, rgba(0, 0, 0, 0.12) 0px -12px 30px inset, rgba(0, 0, 0, 0.12) 0px 4px 6px inset, rgba(0, 0, 0, 0.17) 0px 12px 13px inset, rgba(0, 0, 0, 0.09) 0px -3px 5px inset;
+
+}
+
+.predictOptionDisplayContent{
+    height: auto;
+    padding: 40px;
+    background-color: white;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    border-radius: 30px;
+    color: #BFACE0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+}
+
+.predictOptionsContainer{
+    box-shadow: rgba(130, 43, 201, 0.2) 0px 7px 29px 0px inset;
+    padding: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    margin-bottom: 40px;
+    background-color: transparent;
+}
+/* 
+.predictOptionsContainer:hover{
+    box-shadow: rgba(130, 43, 201, 0.2) 0px 7px 29px 0px; */
+
+.predictOptionHeader{
+    /* text-align: center; */
+    font-weight: 800;
+    color: #d3c8e7;
+}
+
+.getOptionsContainer{
+    height: auto;
+    padding: 40px;
+    /* background-color: red; */
+    margin-top: 30px;
+}
+
+.input-group-text{
+    color: #645CAA;
+    background-color: #e1daec;
+}
+
+.input-group span{
+    font-weight: 800;
+}
+
+.submit-btn input{
+    font-weight: 600 !important;
+}
+
+.predictedTeamDisplay{
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    color: #A084CA;
+    font-size: 22px;
+    margin-top: 5%;
+}
+
+.predictedTeamDisplay .displayTeamInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.displayTeamInfo table tr td{
+    padding: 10px;
+}
+
+.displayPredictedTeam{
+    font-size: 40px;
+    margin-top: 4%;
+    text-align: center;
+}
+
+.displayPredictedTeam span{
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    padding: 6px;
+    font-weight: 600;
+}
+
+.displayPredictionData{
+    padding: 0px;
+    background-color: white;
+    margin-bottom: 80px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.displayDataTable{
+    height: 600px !important;
+    overflow-y: scroll;
+    /* background-color: #f1e8ff; */
+    text-align: center;
+    margin: 0px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.displayDataTableTitle{
+    background-color: #645CAA;
+    margin: 0px;
+    color: #BFACE0;
+    text-align: center;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.displayDataTableRow{
+    color: #645CAA;
+}
+
+.displayDataTableRow:hover{
+    background-color: #ebe0ff;
+    
+}
+
+.paginaterContent{
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    margin-bottom: 90px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #BFACE0;
+}
+
+.paginationLink{
+    text-decoration: none;
+}
+
+.paginationLink:hover{
+    text-decoration: none;
+    color: #ebe0ff;
+}
+
+
+.viewfullDataBtn{
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    margin-bottom: 80px;
+}
+
+.viewfullDataBtn button{
+    background-color: #BFACE0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+hr{
+    border: none;
+    border-top: 2px dotted #BFACE0;
+    width: 5%;
+    border-width: 7px;
+    margin-top: 10px;
+}
+
+.displaySupportUs{
+    height: 400px;
+    background-color: #A084CA;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.displayLinks{
+    display: flex;
+    flex-direction: row;
+    /* background-color: #BFACE0; */
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.displayInteractLinks{
+    position: relative;
+    margin-right: 5px;
+    margin-left: auto;
+    width: 40%;
+    /* background-color: #645CAA; */
+    height: 100%;
+}
+
+.displayInteractLinks a{
+    text-decoration: none;
+    color: #edebf0;
+}
+
+.interactLinksOptions{
+    padding: 10px;
+    background-color: #BFACE0;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.displayInteractLinks a{
+    display: block;
+    width: fit-content;
+    height: fit-content;
+}
+
+.displayAboutRepo{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+}
+
+.displayRepoLink a{
+    font-size: 18px;
+    color: #645CAA;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.displayAboutUs{
+    display: flex;
+    padding: 40px;
+    height: auto;
+    /* background-color: #A084CA; */
+    display: flex;
+    /* flex-direction: row; */
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    border: none;
+    box-shadow: none;
+}
+
+.usrDescription{
+    width: 420px;
+    color: #A084CA;
+}
+
+.aboutUsImage{
+    width: 200px;
+    height: 200px;
+}
+
+.aboutUsImage img{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+}
+
+.usrDescription .fullName, .usrDescription .usrName{
+    text-align: center;
+    font-size: 24px;
+}
+
+.usrDescription .fullName{
+    font-weight: 800;
+    color: #A084CA;
+}
+
+.usrDescription .usrName{
+    color: #a084ca8a;
+}
+
+.pinnedItems{
+    width: 1200px;
+}
+
+.displayPinnedLink{
+    border: 2px solid #BFACE0;
+    padding: 20px;
+    margin: 20px;
+}
+
+.displayPinnedLink a{
+    color: #A084CA;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-mod{
+    height: 120px;
+    background-color: #A084CA;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    font-weight: 800;
+    color: #645CAA;
+    font-size: 18px;
+}
+
+.footer-mod a{
+    color: #8b57da;
+    text-decoration: none;
+}
+
+.footer-mod a:hover{
+    text-decoration: none;
+    color: #7065d1;
+}

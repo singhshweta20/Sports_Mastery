@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sports Win Predictor | Foot Ball</title>
+    </head>
+
+    {% load static %}
+
+    <link rel="icon" type="image/x-icon" href="{% static 'sportsPredictor/static/images/logo/favicon.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--
+        CSS Files
+    -->
+    
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/animateCSS/animate.css-4.1.1/source/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/fontAwesome/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sportsPredictor/static/cssFiles/styles.css' %}">
+
+    <!--
+        Js Files
+    -->
+    <script src="{% static 'sportsPredictor/static/jsFiles/bootstrapJS/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/wow.js/dist/wow.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/jQueryFiles/jquery.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/canvasJS/canvasjs.min.js' %}"></script>
+    <script scr="{% static 'sportsPredictor/static/jsFiles/fontAwesome/pro.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/myJSFiles/actionPerform.js' %}"></script>
+
+
+    
+    
+
+    <script>
+        $(function(){
+            new WOW().init();
+        });
+    </script>
+
+    <body>
+      {%include 'sports_app/common/navbar.html'%}<br>
+      
+
+      <div class="container-fluid show-web-title text-center">
+        <h1 style="color:white;">Make your predictions</h1>
+        <br>
+        <article style="color:white;">
+          Our tool predicts which team wins in a sport based on past records using our Machine Learning Model.
+        </article>
+        <article style="color:white;">
+          Start predicting with high accuracy who is gonna win in upcoming matches in sports
+        </article>
+      </div>
+
+      
+      <div class="container getOptionsContainer">
+        <form action="{% url 'asiaWorldCupPredictionResult' %}" method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Team 1</span>
+              <select class="input-group-text" name="TEAM1" id="">
+              <option value="">--Select--</option>
+              {% for team_1 in team_1s %}
+                <option value="{{team_1}}">{{team_1}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon2">Team 2</span>
+            <select class="input-group-text" name="TEAM2" id="">
+              <option value="">--Select--</option>
+              {% for team_2 in team_2s %}
+                <option value="{{team_2}}">{{team_2}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon3">Venue</span>
+            <select class="input-group-text" name="VENUE" id="">
+              <option value="">--Select--</option>
+              {% for venue in venues %}
+                <option value="{{venue}}">{{venue}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text">Inning 1</span>
+            <select class="input-group-text" name="INNING1" id="">
+              <option value="">--Select--</option>
+              {% for inning_1 in innings_1st %}
+                <option value="{{inning_1}}">{{inning_1}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">Inning 2</span>
+            <select class="input-group-text" name="INNING2" id="">
+              <option value="">--Select--</option>
+              {% for inning_2 in innings_2nd %}
+                <option value="{{inning_2}}">{{inning_2}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+
+          <div class="input-group mb-4 submit-btn">
+            <input type="submit" class="input-group-text">
+          </div>
+
+        </form>
+      </div>
+          
+    </body>
+
+
+</html>

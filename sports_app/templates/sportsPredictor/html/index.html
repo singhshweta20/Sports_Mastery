@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sports Win Predictor | Home</title>
+    </head>
+
+    {% load static %}
+
+    <link rel="icon" type="image/x-icon" href="{% static 'sportsPredictor/static/images/logo/favicon.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--
+        CSS Files
+    -->
+    
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/animateCSS/animate.css-4.1.1/source/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-grid.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-reboot.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-utilities.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap-grid.min.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/fontAwesome/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sportsPredictor/static/cssFiles/styles.css' %}">
+
+    <!--
+        Js Files
+    -->
+    <script src="{% static 'sportsPredictor/static/jsFiles/bootstrapJS/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/wow.js/dist/wow.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/jQueryFiles/jquery.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/canvasJS/canvasjs.min.js' %}"></script>
+    <script scr="{% static 'sportsPredictor/static/jsFiles/fontAwesome/pro.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/myJSFiles/actionPerform.js' %}"></script>
+
+
+    
+    
+
+    <script>
+        $(function(){
+            new WOW().init();
+        });
+    </script>
+
+    <body>
+      {%include 'sports_app/common/navbar.html'%}<br>
+      
+
+      <div class="container-fluid show-web-title text-center">
+        <h1 style="color:white;">Make your predictions</h1>
+        <br>
+        <article style="color:white;">
+          Our tool predicts which team wins in a sport based on past records using our Machine Learning Model.
+        </article>
+        <article style="color:white;">
+          Start predicting with high accuracy who is gonna win in upcoming matches in sports
+        </article>
+      </div>
+
+
+      <div class="continer-fluid startUpDisplay g-3">
+        <div class="container getStartedContent g-3 text-center">
+
+
+
+          <div class="displaySportsFavs">
+            <i class="fa-duotone fa-futbol sportsFavs"></i>
+            <i class="fa-solid fa-basketball sportsFavs"></i>
+            <i class="fa-solid fa-baseball sportsFavs"></i>
+            <i class="fa-sharp fa-solid fa-table-tennis-paddle-ball sportsFavs"></i>
+            <i class="fa-regular fa-field-hockey-stick-ball sportsFavs"></i>
+            <i class="fa-sharp fa-solid fa-cricket-bat-ball sportsFavs"></i>
+            <i class="fa-solid fa-volleyball sportsFavs"></i>
+            <i class="fa-solid fa-rugby-ball sportsFavs"></i>
+            <i class="fa-solid fa-golf-flag-hole sportsFavs"></i>
+          </div>
+          
+          <h4>Excited to predict what team wins next?</h4>
+          <button class="btn btn-outline-secondary" onclick="window.location.href = '{% url 'predictOptions' %}'">Predict Now</button>
+          
+        </div>
+      </div>
+
+
+      <div class="container displayPredictionData">
+       
+        <table class="table displayDataTableTitle">
+          <tr>
+            <th scope="row">Game</th>
+            <th scope="row">Team 1</th>
+            <th scope="row">Team 2</th>
+            <th scope="row">Result</th>
+            <th scope="row">Predicted On</th>
+          </tr>
+        </table>
+        <div class="displayDataTable">
+          <table class="table">
+            {% for game, team_1, team_2, result, predictedTime in pred_items %}
+            <tr class="displayDataTableRow">
+              <th>{{game}}</th>
+              <th>{{team_1}}</th>
+              <th>{{team_2}}</th>
+              <th>{{result}}</th>
+              <th>{{predictedTime}}</th>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        
+      </div>
+      <div class="container viewfullDataBtn">
+        <button class="btn btn-outline-secondary" onclick="window.location.href= '{% url 'predictionHistory' %}'">View Full Data <i class="fa-duotone fa-right"></i></button>
+      </div>
+
+      <div style="display: flex; flex-direction: row; place-content: center; place-items: center;">
+        <hr>
+      </div>
+      
+    </body>
+
+
+</html>

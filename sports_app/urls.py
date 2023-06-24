@@ -36,4 +36,20 @@ urlpatterns = [path("",views.home,name="home"),
                path("test/",views.test,name="test" ), 
                path("validate_student_username/",message_views.validate_student_username,name="validate_student_username"),
                path("validate_coach_username/",message_views.validate_coach_username,name="validate_coach_username"),
+
+
+
+
+
+                path("prediction", views.main, name="index"),
+                path("choose", views.predictOptions, name="predictOptions"),
+                path("predictionHistory", views.predictionHistory, name="predictionHistory"),
+                path("predictAsiaWorldCup", views.predictAsiaWorldCup, name="predictAsiaWorldCup"),
+                path("asiaWorldCupPredictionResult", views.asiaWorldCupPredictionResult, name="asiaWorldCupPredictionResult"),
+                path("predictIPL", views.predictIPL, name="predictIPL"),
+                path("iplPredictionResult", views.iplPredictionResult, name="iplPredictionResult"),
+                path("predictT20", views.predictT20, name="predictT20"),
+                path("t20PredictionResult", views.t20PredictionResult, name="t20PredictionResult"),
+
+
               ]

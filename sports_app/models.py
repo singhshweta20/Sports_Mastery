@@ -3,6 +3,13 @@ from django.utils import timezone
 import uuid
 # Create your models here.
 
+class PredictedHistory(models.Model):
+    game = models.CharField(max_length=255)
+    team_1 = models.CharField(max_length=255)
+    team_2 = models.CharField(max_length=255)
+    result = models.CharField(max_length=255)
+    predicted_on = models.DateTimeField(auto_now_add=True)
+    
 class Event(models.Model):
     event_id=models.CharField(max_length=10,default = "NA")
     name = models.CharField(max_length=50,null=False)

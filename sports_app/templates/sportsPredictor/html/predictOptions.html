@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sports Win Predictor | Choose</title>
+    </head>
+
+    {% load static %}
+
+    <link rel="icon" type="image/x-icon" href="{% static 'sportsPredictor/static/images/logo/favicon.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--
+        CSS Files
+    -->
+    
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/animateCSS/animate.css-4.1.1/source/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrapCSS/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/fontAwesome/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sportsPredictor/static/cssFiles/styles.css' %}">
+
+    <!--
+        Js Files
+    -->
+    <script src="{% static 'sportsPredictor/static/jsFiles/bootstrapJS/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/wow.js/dist/wow.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/jQueryFiles/jquery.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/canvasJS/canvasjs.min.js' %}"></script>
+    <script scr="{% static 'sportsPredictor/static/jsFiles/fontAwesome/pro.min.js' %}"></script>
+    <script src="{% static 'sportsPredictor/static/jsFiles/myJSFiles/actionPerform.js' %}"></script>
+
+
+    
+    
+
+    <script>
+        $(function(){
+            new WOW().init();
+        });
+    </script>
+
+    <body>
+      {%include 'sports_app/common/navbar.html'%}<br>
+      
+      <div class="container-fluid show-web-title text-center">
+        <h1 style="color:white;">Make your predictions</h1>
+        <br>
+        <article style="color:white;">
+          Our tool predicts which team wins in a sport based on past records using our Machine Learning Model.
+        </article>
+        <article style="color:white;">
+          Start predicting with high accuracy who is gonna win in upcoming matches in sports
+        </article>
+      </div>
+
+
+      <div class="continer-fluid predictOptionDisplay g-3">
+        
+        <div class="container-fluid predictOptionDisplayContent g-3 text-center" >
+
+            <div class="container predictOptionsContainer" onclick="window.location.href='{% url 'predictT20' %}'">
+              <h4 class="predictOptionHeader">Predict For T20 <i class="fa-solid fa-cricket-bat-ball"></i></h4>
+            </div>
+
+            <div class="container predictOptionsContainer" onclick="window.location.href='{% url 'predictIPL' %}'">
+              <h4 class="predictOptionHeader">Predict For IPL <i class="fa-regular fa-cricket-bat-ball"></i></h4>
+            </div>
+
+
+            <div class="container predictOptionsContainer" onclick="window.location.href='{% url 'predictAsiaWorldCup' %}'">
+              <h4 class="predictOptionHeader">Predict For Asia World Cup <i class="fa-duotone fa-cricket-bat-ball"></i></h4>
+            </div>
+            
+        </div>
+
+      </div>
+          
+    </body>
+
+
+</html>
