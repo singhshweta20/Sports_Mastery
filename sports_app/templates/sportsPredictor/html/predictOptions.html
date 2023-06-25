@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+{% load static%}
 <html>
     <head>
         <title>Sports Win Predictor | Choose</title>
+        {%include 'sports_app/common/commoncss.html'%}
     </head>
 
     {% load static %}
@@ -20,7 +22,7 @@
     <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/bootstrap-icons/font/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'sportsPredictor/static/cssFiles/fontAwesome/all.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'sportsPredictor/static/cssFiles/styles.css' %}">
-
+    {%include 'sports_app/common/commoncss.html'%}
     <!--
         Js Files
     -->

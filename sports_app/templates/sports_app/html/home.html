@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
 
   <head>
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
+    
     <title>Sports_app | Home</title>
 
     <!-- Bootstrap core CSS -->
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="static/sports_app/assets/css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="static/sports_app/assets/css/owl.css">
     <link rel="stylesheet" href="static/sports_app/assets/css/lightbox.css">
+    {%include 'sports_app/common/commoncss.html'%}
     <style>
       a:link {
         color: white;
@@ -81,9 +83,8 @@ https://templatemo.com/tm-569-edu-meeting
                     <ul class="nav" >
                       <a class="nav" href="{{'/contactus'}}"><li class="scroll-to-section"> <h5>Contact Us</h5></li></a> 
                       <a class="nav" href="{{'/feedback'}}"><li class="scroll-to-section"><h5>Feedback</h5> </li></a>
-                      <a class="nav" href="{{'/aboutus'}}"><li class="scroll-to-section"><h5> About Us</h5></li></a> 
-
-                      <a class="nav" href="{{'/prediction'}}"> <li class="scroll-to-section"><h5>Sport Suggestion</h5></li></a>
+                      <a class="nav" href="{{'/aboutus'}}"><li class="scroll-to-section"><h5> About Us</h5></li></a>
+                      <a class="nav" href="{{'/prediction'}}"> <li class="scroll-to-section"><h5>Sports Win Predictor</h5></li></a>
                       <a class="nav" href="{{'/admission_request'}}"><li class="scroll-to-section"><h5>Admission Request</h5></li> </a> 
                       <a class="nav" href="{{'/statistics'}}"> <li class="scroll-to-section"><h5>Statistics</h5></li> </a> 
                       {% comment %} <a class="nav" href="{{'/sports'}}"> <li class="scroll-to-section"><h5>Sports</h5></li> </a>  {% endcomment %}
