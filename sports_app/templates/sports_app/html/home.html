@@ -34,7 +34,7 @@
       }
       
       a:hover {
-        color: white;
+        color: orange;
         background-color: transparent;
         text-decoration: underline;
       }
@@ -70,15 +70,15 @@ https://templatemo.com/tm-569-edu-meeting
   <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
+            <div class="col-12"> 
+                <nav class="main-nav" >
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        Sports Mastery (BBDU Sports Hub)
-                    </a>
+                    <h1 style="color:white">
+                        Sports Mastery
+                    </h1>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
+                    <ul class="nav" >
                       <a class="nav" href="{{'/contactus'}}"><li class="scroll-to-section"> <h5>Contact Us</h5></li></a> 
                       <a class="nav" href="{{'/feedback'}}"><li class="scroll-to-section"><h5>Feedback</h5> </li></a>
                       <a class="nav" href="{{'/aboutus'}}"><li class="scroll-to-section"><h5> About Us</h5></li></a> 
@@ -86,15 +86,23 @@ https://templatemo.com/tm-569-edu-meeting
                       <a class="nav" href="{{'/prediction'}}"> <li class="scroll-to-section"><h5>Sport Suggestion</h5></li></a>
                       <a class="nav" href="{{'/admission_request'}}"><li class="scroll-to-section"><h5>Admission Request</h5></li> </a> 
                       <a class="nav" href="{{'/statistics'}}"> <li class="scroll-to-section"><h5>Statistics</h5></li> </a> 
-                      <a class="nav" href="{{'/sports'}}"> <li class="scroll-to-section"><h5>Sports</h5></li> </a> 
+                      {% comment %} <a class="nav" href="{{'/sports'}}"> <li class="scroll-to-section"><h5>Sports</h5></li> </a>  {% endcomment %}
+                      
                       <li class="has-sub" align="bottom">
+                        <a class="nav" href="javascript:void(0)"><h5>sports</h5></a> 
+                        <ul class="sub-menu">
+                           <a class="dropdown-item" href="{{'/sports'}}" ><li>Sports List</li></a>
+                           <a class="dropdown-item" href="{{'/sports_plan'}}" ><li>Sports Plan</li></a>
+                        </ul>
+                      </li>
 
-                        <a class="nav"  href="javascript:void(0)"><h5>Login</h5></a>
+                      <li class="has-sub" align="bottom">
+                        <a class="nav" href="javascript:void(0)"><h5>Login</h5></a>
                         <ul class="sub-menu">
                           <a class="dropdown-item" href="{{'/student_login'}}"><li>Student</li></a>
                           <a class="dropdown-item" href="{{'/coach_login'}}"> <li>Coach</li></a>
                         </ul>
-                    </li>
+                      </li>
                     
                     
                     </ul>        
@@ -116,9 +124,9 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
-              <h6>Hello aTHLETE</h6>
+              <h6>Hello ATHLETE</h6>
               <h2>Welcome to Sports Mastery</h2>
-              <p color="white" font-size="20px">Sports Mastery is a new BBDU Sports Hub Portal which provides facilities to enqiure and interact with the BBDU sports Hub community. Our sports centres have state of the art coaching facilities to train the young atheletes towards the goals of the future. </p>
+              <p color="white" font-size="20px">Sports Mastery is our new Sports Hub Portal which provides facilities to enqiure and interact with our sports community. Our sports centre have state of the art coaching facilities to train our young atheletes towards the goals of the future. </p>
               
           </div>
               </div>
