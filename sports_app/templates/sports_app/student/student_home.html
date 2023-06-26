@@ -1,21 +1,57 @@
+
+
+
+
 {% load static%}
-<html><head><title>sportsapp </title>
+<html><head><title>sportsapp</title>
 {%include 'sports_app/common/commoncss.html'%}
+<link rel="stylesheet" href="{% static 'sports_app/css/sports_plan.css' %}">
+
+<style type="text/css">
+    body {
+background: linear-gradient(45deg, #49a09d, #5f2c82);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
 </head>
 <body>
-    {%include 'sports_app/student/student_header.html'%}
-    <div class "col-md-5" style="margin-left:40%; margin-top: 100px; margin-bottom:100px; background-color:white ;width:370; padding:20">
-        <h5>Name :  👨{{student_dict_key.student_name}}</h5>
-        <h5>Email:  {{student_dict_key.student_email}}</h5>
-        <h5>Phone :  {{student_dict_key.student_phone}}</h5>
-        <h5>Parent name :  {{student_dict_key.parent_name}}</h5>
-        <h5>Parent Phone :  {{student_dict_key.parent_phone}}</h5>
+    {%include 'sports_app/student/student_header.html'%} 
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th >Name</th>
+          <th >Email</th>
+          <th>Phone</th>
+          <th>Parent name</th>
+          <th>Parent phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td scope="col" >{{student_dict_key.student_name}}</td>
+            <td scope="col" > {{student_dict_key.student_email}}</td>
+            <td scope="col" >{{student_dict_key.student_phone}}</td>
+            <td scope="col" >{{student_dict_key.parent_name}}</td>
+            <td scope="col" >{{student_dict_key.parent_phone}}</td>
+        </tr>
 
-    </div>
+       
+      </tbody>
+    </table>
+  </div>
 
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
-    {%include 'sports_app/common/commonjs.html'%} 
-    <script src="{% static 'sports_app/js/validation.js'%}">
-    </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+

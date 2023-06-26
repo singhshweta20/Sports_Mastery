@@ -560,7 +560,7 @@ def t20PredictionResult(request):
         if won_team == "Tied":
             pass
         elif won_team != team_1 and won_team != team_2:
-            won_team = team_1
+            won_team = team_2
         
         elif team_1 == team_2:
             won_team = "Error"

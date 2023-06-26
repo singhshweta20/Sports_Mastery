@@ -1,5 +1,13 @@
 {% load static%}
 <html><head><title>sports_app | student_inbox </title>
+  <style type="text/css">
+    body {
+background: linear-gradient(45deg, #49a09d, #5f2c82);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
 {%include 'sports_app/common/commoncss.html'%}
 </head>
 <body> {%include 'sports_app/student/student_header.html'%}<br>
@@ -29,7 +37,6 @@
     </tr>
         </tbody>
       </table><br>
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
     {%include 'sports_app/common/commonjs.html'%} 
     <script src="{% static 'sports_app/js/validation.js'%}"></script>
 </body>

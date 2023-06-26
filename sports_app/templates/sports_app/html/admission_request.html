@@ -1,6 +1,14 @@
 {% load static%}
 <html><head><title>sportsapp | Admission Request </title>
 {%include 'sports_app/common/commoncss.html'%}
+<style type="text/css">
+    body {
+background: linear-gradient(45deg, #49a09d, #5f2c82);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
 </head>
 <body>
     {%include 'sports_app/common/navbar.html'%}
@@ -121,7 +129,6 @@
             </div>
         </div>
     </div>
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
     {%include 'sports_app/common/commonjs.html'%} 
     <script src="{% static 'sports_app/js/validation.js'%}">
     </script>

@@ -2,7 +2,14 @@
 <html><head><title>{%block title%} 
                    {% endblock %}
             </title>
-
+            <style type="text/css">
+              body {
+          background: linear-gradient(45deg, #49a09d, #5f2c82);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+          }
+          </style>
 {%include 'sports_app/common/commoncss.html'%}
 
 <style>{%block style%}.table{width:70%; margin-left:15%; background-color:white} {% endblock %}</style>
@@ -13,7 +20,6 @@
     
   {% block content %} {% endblock %}
 <br>
-    <footer>     {%include 'sports_app/common/footer.html'%}   </footer>
 
     {%include 'sports_app/common/commonjs.html'%}
     <script src="{% static 'sports_app/js/validation.js'%}"></script>

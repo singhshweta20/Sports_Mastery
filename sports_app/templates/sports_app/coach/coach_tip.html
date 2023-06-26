@@ -2,6 +2,14 @@
 <html>
 <head><title>sportsapp</title>
 {%include 'sports_app/common/commoncss.html'%}
+<style type="text/css">
+    body {
+background: linear-gradient(45deg, #49a09d, #5f2c82);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
 </head>
 <body >
     {%include 'sports_app/coach/coach_header.html'%}
@@ -42,7 +50,6 @@
         </div>
     </div>
 
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
     {%include 'sports_app/common/commonjs.html'%}
 </body>
 </html>

@@ -82,9 +82,9 @@ def student_coach(request):
         
         student_detail= Student.objects.get(student_id=s_id)
         ca=Coach_Assign.objects.get(student_id=student_detail.student_id) 
-        print(ca.coach_id)
+        
         tips_list=Tip.objects.filter(employee=ca.coach_id)
-        print(tips_list)
+        
         c_info={"c_info_key":c_detail,
                 "tips_key":tips_list}
         return render(request,"sports_app/student/student_coach.html",c_info)

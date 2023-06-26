@@ -1,8 +1,37 @@
 {% load static%}
 <html><head><title>sportsapp</title>
 {%include 'sports_app/common/commoncss.html'%}
+<link rel="stylesheet" href="{% static 'sports_app/css/sports_plan.css' %}">
 </head>
 <body>
+  {%include 'sports_app/common/navbar.html'%}
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th >Sport</th>
+          <th >Plan_name</th>
+          <th>Charge</th>
+          <th>Facilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sp in sports_plan_key%}
+        <tr>
+            <td scope="col" >{{sp.sport}}</td>
+            <td scope="col" >{{sp.plan_name}}</td>
+            <td scope="col" >{{sp.charge}}</td>
+            <td scope="col" >{{sp.facilities}}</td>
+        </tr>
+        {% endfor %}
+        
+       
+      </tbody>
+    </table>
+  </div>
+
+
+<!--   
     {%include 'sports_app/common/navbar.html'%}
     <table class="table" style="width:70%; margin-left:15%; margin-top:2%; background-color:white">
         <thead>
@@ -24,9 +53,17 @@
     {% endfor %}
         </tbody>
       </table>
-    <footer> {%include 'sports_app/common/footer.html'%}</footer>
-    {%include 'sports_app/common/commonjs.html'%} 
+    
     <script src="{% static 'sports_app/js/validation.js'%}">
-    </script>
+    </script> -->
 </body>
 </html>
+
+
+
+
+
+
+
+
+

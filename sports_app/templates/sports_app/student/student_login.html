@@ -2,6 +2,14 @@
 <html>
     <head> 
         {%include 'sports_app/common/commoncss.html'%}
+        <style type="text/css">
+            body {
+        background: linear-gradient(45deg, #49a09d, #5f2c82);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+        </style>
     </head>
     <body>{%include 'sports_app/common/navbar.html'%}
         <br>
@@ -9,7 +17,7 @@
         <div class="col-6 bg-white">  
             <div class="card-header">
                 <p style="font-size: 25px;text-align: center">
-                    <b><u>Student Login</u></b>
+                    <b>Student Login</b>
                 </p>
             </div>
             <form method="post" action="/student_login/" class="needs-validation" novalidate>
@@ -39,7 +47,6 @@
           <div class="text-center"><button class ="btn btn-success" >login</button></div></form>
         </div>
         </div><br>
-        <footer> {%include 'sports_app/common/footer.html' %}</footer>
         {%include 'sports_app/common/commonjs.html' %}
         <script src="{% static 'sports_app/js/validation.js'%}">
         </script>

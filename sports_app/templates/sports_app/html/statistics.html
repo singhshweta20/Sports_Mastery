@@ -29,17 +29,108 @@ https://templatemo.com/tm-569-edu-meeting
 
 -->
 <link rel="icon" href="{%static 'sports_app/images/favicon.png' %}">
+
+<style type="text/css">
+  body {
+background: linear-gradient(45deg, #49a09d, #5f2c82);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
+<style>
+  a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: orange;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  </style>
   </head>
 
 <body>
-    {%include 'sports_app/common/navbar.html'%}
+
+
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12"> 
+                <nav class="main-nav" >
+                    <!-- ***** Logo Start ***** -->
+                    <h1 style="color:white">
+                        Statistics
+                    </h1>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav" >
+                      <a class="nav" href="{{'/contactus'}}"><li class="scroll-to-section"> <h5>Contact Us</h5></li></a> 
+                      <a class="nav" href="{{'/feedback'}}"><li class="scroll-to-section"><h5>Feedback</h5> </li></a>
+                      <a class="nav" href="{{'/aboutus'}}"><li class="scroll-to-section"><h5> About Us</h5></li></a>
+                      <a class="nav" href="{{'/prediction'}}"> <li class="scroll-to-section"><h5>Sports Win Predictor</h5></li></a>
+                      <a class="nav" href="{{'/admission_request'}}"><li class="scroll-to-section"><h5>Admission Request</h5></li> </a> 
+                      <a class="nav" href="{{'/statistics'}}"> <li class="scroll-to-section"><h5>Statistics</h5></li> </a> 
+                      {% comment %} <a class="nav" href="{{'/sports'}}"> <li class="scroll-to-section"><h5>Sports</h5></li> </a>  {% endcomment %}
+                      
+                      <li class="has-sub" align="bottom">
+                        <a class="nav" href="javascript:void(0)"><h5>sports</h5></a> 
+                        <ul class="sub-menu">
+                           <a class="dropdown-item" href="{{'/sports'}}" ><li>Sports List</li></a>
+                           <a class="dropdown-item" href="{{'/sports_plan'}}" ><li>Sports Plan</li></a>
+                        </ul>
+                      </li>
+
+                      <li class="has-sub" align="bottom">
+                        <a class="nav" href="javascript:void(0)"><h5>Login</h5></a>
+                        <ul class="sub-menu">
+                          <a class="dropdown-item" href="{{'/student_login'}}"><li>Student</li></a>
+                          <a class="dropdown-item" href="{{'/coach_login'}}"> <li>Coach</li></a>
+                        </ul>
+                      </li>
+                    
+                    
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
   <section class="our-facts" id="statistics">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Kridansh Statistics</h2>
+              <h2></h2>
+            </div>
+            <div class="col-lg-12">
+              <h2></h2>
+            </div>
+            <div class="col-lg-12">
+              <h2></h2>
             </div>
             <div class="col-lg-6">
               <div class="row">
